@@ -6,45 +6,54 @@ This project focuses on automating the generation of **Employee Hierarchies** us
 
 ## 📁 Project Structure
 sql/
-├── employee_master.sql # Create Employee_Master table
-├── insertDataEmployee_Master.sql # Insert sample employee data
-├── employee_Hierarchy.sql # Create Employee_Hierarchy table
-├── createFunction.sql # User-defined functions for name extraction
-├── storedProcedure.sql # Stored procedure to generate hierarchy
-├── execution.sql # Script to run the procedure and display output
-main.py # Python script to automate execution
+├── employee_master.sql               # Create Employee_Master table
+├── insertDataEmployee_Master.sql    # Insert sample employee data
+├── employee_Hierarchy.sql           # Create Employee_Hierarchy table
+├── createFunction.sql               # User-defined functions for name extraction
+├── storedProcedure.sql              # Stored procedure to generate hierarchy
+├── execution.sql                    # Script to run the procedure and display output
+
+script/
+└── run.py                           # Python script to automate SQL execution
+n
 
 
-## ⚙️ Technologies Used
+⚙️ Technologies Used
+🐍 Python (with pyodbc)
 
-- **SQL Server (Microsoft sql server management studio with version (v 18.12.1)**
-- **Python (pyodbc)**
-- **Git / GitHub**
-- **VS Code / SSMS**
+🗃️ SQL Server (Microsoft SQL Server Management Studio v18.12.1)
 
-- ## 🏗️ Setup Instructions
+🧠 Stored Procedures & User-defined Functions
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/anshika1309/internship-celebal.git
-   cd internship-celebal
+💻 VS Code / SSMS
 
-2. Run Python Script
-Ensure you have Python and pyodbc installed:
+🧑‍💻 Git & GitHub
 
+
+🏗️ Setup Instructions
+
+1️⃣ Clone the Repository:
+git clone https://github.com/anshika1309/internship-celebal.git
+cd internship-celebal
+
+2️⃣ Install Python Dependencies:
 pip install pyodbc
-python main.py
 
-3.Make sure your local SQL Server is running, and the EmployeeDB database exists.
-For creating  EmployeeDB database 
+3️⃣ Create the EmployeeDB Database (if not exists)
 IF DB_ID('EmployeeDB') IS NULL
     CREATE DATABASE EmployeeDB;
+    
+4️⃣ Run the Python Script
+python script/run.py
 
-Output Example:-
-After running the stored procedure, the employee_Hierarchy table is populated with levels and extracted names:
+✅ This will create all the necessary tables, insert data, create functions and procedures, and finally populate the employee_Hierarchy table.
 
-employeeId	reportingTo	    emailId	               level	   firstName	lastName
-H1             NULL	      john.doe@example.com   	  1	     john	    doe
-H3	         John Smith H1	alice.jones@example.com	  2	     alice	    jones
-...	          ...	            ...	              ...	       ...	      ...
+📊 Sample Output
+After execution, the employee_Hierarchy table looks like:
+| employeeId | reportingTo   | emailId                                                   | level | firstName | lastName |
+| ---------- | ------------- | --------------------------------------------------------- | ----- | --------- | -------- |
+| H1         | NULL          | [john.doe@example.com](mailto:john.doe@example.com)       | 1     | john      | doe      |
+| H3         | John Smith H1 | [alice.jones@example.com](mailto:alice.jones@example.com) | 2     | alice     | jones    |
+| ...        | ...           | ...                                                       | ...   | ...       | ...      |
+
 
