@@ -17,7 +17,7 @@ main.py # Python script to automate execution
 
 ## ⚙️ Technologies Used
 
-- **SQL Server (T-SQL)**
+- **SQL Server (Microsoft sql server management studio with version (v 18.12.1)**
 - **Python (pyodbc)**
 - **Git / GitHub**
 - **VS Code / SSMS**
@@ -37,7 +37,8 @@ python main.py
 
 3.Make sure your local SQL Server is running, and the EmployeeDB database exists.
 For creating  EmployeeDB database 
-
+IF DB_ID('EmployeeDB') IS NULL
+    CREATE DATABASE EmployeeDB;
 
 Output Example:-
 After running the stored procedure, the employee_Hierarchy table is populated with levels and extracted names:
