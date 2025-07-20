@@ -15,7 +15,8 @@ sql/
 
 script/
 └── run.py                           # Python script to automate SQL execution
-n
+
+
 
 
 ⚙️ Technologies Used
